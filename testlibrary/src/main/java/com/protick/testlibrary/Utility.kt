@@ -9,7 +9,7 @@ import android.widget.Toast
  * protick.kumer@bjitgroup.com
  * Last modified $file.lastModified
  */
-class Toaster {
+class Utility {
     companion object {
         fun showToastMsg(context: Context, msg: String) {
             Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
