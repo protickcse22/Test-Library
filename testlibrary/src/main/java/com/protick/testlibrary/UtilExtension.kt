@@ -9,7 +9,6 @@ import android.view.inputmethod.InputMethodManager
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.regex.Pattern
 
 /**
  * Created by protick kumer dey on 2020/05/14
@@ -19,35 +18,19 @@ import java.util.regex.Pattern
  */
 
 
-fun String.isValidName(): Boolean {
-    return Pattern.compile("^[a-zA-Zぁ-ゔゞ゛゜ー ]*\$").matcher(this).matches()
-}
-
 fun String.getTimeToHour(): Int {
-    val hourAndMin = this.trim().split(":")
-    val len = hourAndMin.count()
+    val hour = this.trim().split(":")
+    val len = hour.count()
     if (len == 2) {
-        return hourAndMin[0].toInt()
+        return hour[0].toInt()
     }
     return 0
 }
 
-fun File.isJpeg(): Boolean {
-    return extension.endsWith("jpg", true) || extension.endsWith("jpeg", true)
-}
+
 
 fun Long.toSeconds(): Long = this / 1000
 
-val Int?.value: Int
-    get() = if (this == null) 0 else this
-
-val Int?.positiveOnly: Int
-    get() = if (this == null || this < 0) 0 else this
-
-
-fun Int.isZeroOrLess(): Boolean {
-    return this <= 0
-}
 
 fun Int.minuteToHour(): Int {
     return this / 60
